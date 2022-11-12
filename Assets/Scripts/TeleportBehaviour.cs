@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TeleportBehaviour : MonoBehaviour
 {
-    public GameObject marker;
+    public GameObject marker1;
+    public GameObject marker2;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +14,6 @@ public class TeleportBehaviour : MonoBehaviour
         Debug.Log("Player teleported");
 
         Cam2Behaviour c2 = GameObject.FindObjectOfType<Cam2Behaviour>();
-        c2.Position(marker.transform.position.x);
+        c2.Position(marker1.transform.position.x, marker1.transform.position.y, marker2.transform.position.x, marker2.transform.position.y);
     }
 }
