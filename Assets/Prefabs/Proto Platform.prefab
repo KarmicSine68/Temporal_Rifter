@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4750749957644899721}
   - component: {fileID: 4750749957644899720}
   - component: {fileID: 4750749957644899719}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Proto Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4750749957644899718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -68.06753, y: 2.1212964, z: 13.410035}
-  m_LocalScale: {x: 1.8, y: 1, z: 1}
+  m_LocalScale: {x: 2.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1568879091
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: baea08412288a224bbf0c9b0ffab2577, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

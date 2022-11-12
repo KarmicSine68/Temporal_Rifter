@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - Background
-  - Door
   - Platform
   - Player
+  - Door
   - 
   - 
   - 
@@ -44,7 +44,7 @@ TagManager:
   - name: Background
     uniqueID: 3263889713
     locked: 0
-  - name: Door
+  - name: Lever
     uniqueID: 404248371
     locked: 0
   - name: Platform
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2437528215
+    locked: 0
+  - name: Door
+    uniqueID: 1868145823
     locked: 0
