@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4750749957644899721}
   - component: {fileID: 4750749957644899720}
   - component: {fileID: 4750749957644899719}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Proto Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
