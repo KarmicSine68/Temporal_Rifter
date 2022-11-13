@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeverBehaviour : MonoBehaviour
+public class Lever2Behaviour : MonoBehaviour
 {
     public GameObject door;
     bool near = false;
@@ -11,7 +11,7 @@ public class LeverBehaviour : MonoBehaviour
 
     private void Start()
     {
-        flip = false;
+        flip = true;
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class LeverBehaviour : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         near = true;
     }
@@ -35,23 +35,23 @@ public class LeverBehaviour : MonoBehaviour
     private void Flip()
     {
         Vector3 doorPos = door.transform.position;
-        if (!flip)
+        if (flip)
         {
             yrotate = 180;
-            doorPos.y += 5f;
+            doorPos.y -= 5f;
             door.transform.position = doorPos;
 
             Debug.Log("Lever 1 switched");
-            flip = true;
+            flip = false;
         }
         else
         {
             yrotate = 0;
-            doorPos.y -= 5f;
+            doorPos.y += 5f;
             door.transform.position = doorPos;
 
             Debug.Log("Lever 2 switched");
-            flip = false;
+            flip = true;
         }
     }
 

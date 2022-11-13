@@ -5,14 +5,14 @@ using UnityEngine;
 public class ButtonBehaviour : MonoBehaviour
 {
 
-    public void StartGame()
+    public void Level1()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 
     public void Instructions()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
     public void Menu()
@@ -20,4 +20,13 @@ public class ButtonBehaviour : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
+    public void Level2()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+    }
+
+    public void Level3()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(4);
+    }
 }

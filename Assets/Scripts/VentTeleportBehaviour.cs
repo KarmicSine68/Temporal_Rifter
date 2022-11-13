@@ -5,7 +5,6 @@ using UnityEngine;
 public class VentTeleportBehaviour : MonoBehaviour
 {
     public GameObject player;
-    public GameObject cam;
     public GameObject tele;
     public GameObject tele2;
 
@@ -13,7 +12,6 @@ public class VentTeleportBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         player.transform.position = new Vector3(tele.transform.position.x, tele.transform.position.y, player.transform.position.z);
-        cam.transform.position = new Vector3(tele.transform.position.x, tele.transform.position.y, cam.transform.position.z) ;
 
         //Sets the boundary for the camera
         Cam2Behaviour cb = GameObject.FindObjectOfType<Cam2Behaviour>();
