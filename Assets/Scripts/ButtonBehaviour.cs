@@ -12,7 +12,9 @@ public class ButtonBehaviour : MonoBehaviour
 
     public void Instructions()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        InstructionBehaviour ib = FindObjectOfType<InstructionBehaviour>();
+
+        ib.Display();
     }
 
     public void Menu()
@@ -28,5 +30,17 @@ public class ButtonBehaviour : MonoBehaviour
     public void Level3()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(4);
+    }
+
+    public void Leave()
+    {
+        Application.Quit();
+    }
+
+    public void Close()
+    {
+        InstructionBehaviour ib = FindObjectOfType<InstructionBehaviour>();
+
+        ib.UnDisplay();
     }
 }

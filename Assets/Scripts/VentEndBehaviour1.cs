@@ -8,6 +8,8 @@ public class VentEndBehaviour1 : MonoBehaviour
     public GameObject max;
     public GameObject spawnpoint;
 
+    public int time;
+
     //Sets camera boundary values and sets the player's spawnpoint
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,5 +18,7 @@ public class VentEndBehaviour1 : MonoBehaviour
 
         NewGameController gc = FindObjectOfType<NewGameController>();
         gc.SetSpawn(spawnpoint.transform.position.x, spawnpoint.transform.position.y);
+
+        gc.SetTime(25);
     }
 }

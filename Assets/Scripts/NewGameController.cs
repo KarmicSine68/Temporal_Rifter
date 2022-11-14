@@ -17,12 +17,15 @@ public class NewGameController : MonoBehaviour
 
     public TMP_Text lifeText;
 
+    int time;
+
     // Sets the amount of player lives
     void Start()
     {
         lives = 5;
         end = false;
         died = false;
+        time = 0;
     }
 
     // Update is called once per frame
@@ -53,13 +56,26 @@ public class NewGameController : MonoBehaviour
     {
         if (!end)
         {
+            NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
             player.transform.position = new Vector3(spawnX, spawnY, transform.position.z);
 
             lives--;
+
+            tb.TimeStart(time);
         }
         died = true;
+        
         StartCoroutine(Delay());
 
+    }
+
+    public void SetTime(int n)
+    {
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+
+        time = n;
+
+        tb.TimeStart(time);
     }
 
     IEnumerator Delay()

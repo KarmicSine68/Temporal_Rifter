@@ -6,7 +6,7 @@ public class CryoBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameController gc = GameObject.FindObjectOfType<GameController>();
+        NewGameController gc = GameObject.FindObjectOfType<NewGameController>();
         gc.Respawn();
     }
 }

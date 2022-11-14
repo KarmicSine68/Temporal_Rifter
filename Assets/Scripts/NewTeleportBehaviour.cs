@@ -10,6 +10,8 @@ public class NewTeleportBehaviour : MonoBehaviour
     public GameObject min;
     public GameObject max;
 
+    public int time;
+
     //Moves the player and camera to the next room
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,5 +20,8 @@ public class NewTeleportBehaviour : MonoBehaviour
         //Sets the boundary for the camera
         Cam2Behaviour cb = FindObjectOfType<Cam2Behaviour>();
         cb.Position(min.transform.position.x, min.transform.position.y, max.transform.position.x, max.transform.position.y);
+
+        NewGameController gc = FindObjectOfType<NewGameController>();
+        gc.SetTime(40);
     }
 }
