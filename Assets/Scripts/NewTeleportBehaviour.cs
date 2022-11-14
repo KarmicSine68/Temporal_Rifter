@@ -21,7 +21,7 @@ public class NewTeleportBehaviour : MonoBehaviour
         Cam2Behaviour cb = FindObjectOfType<Cam2Behaviour>();
         cb.Position(min.transform.position.x, min.transform.position.y, max.transform.position.x, max.transform.position.y);
 
-        NewGameController gc = FindObjectOfType<NewGameController>();
-        //gc.SetTime(40);
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        //tb.TimeStart();
     }
 }

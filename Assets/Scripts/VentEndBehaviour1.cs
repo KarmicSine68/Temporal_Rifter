@@ -19,6 +19,7 @@ public class VentEndBehaviour1 : MonoBehaviour
         NewGameController gc = FindObjectOfType<NewGameController>();
         gc.SetSpawn(spawnpoint.transform.position.x, spawnpoint.transform.position.y);
 
-        gc.SetTime(25);
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        //tb.TimeStart();
     }
 }

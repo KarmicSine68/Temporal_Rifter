@@ -8,24 +8,29 @@ public class NewTimerBehaviour : MonoBehaviour
     public TMP_Text timer1;
     public TMP_Text timer2;
 
-    int time;
+    float time;
     float wait;
 
-    // Start is called before the first frame update
+    bool start;
+
+    // Doesn't display clock when game is loaded
     void Start()
     {
+        start = false;
         timer1.text = "";
         timer2.text = "";
+        time = 999;
+        wait = 1;
     }
 
-    // Update is called once per frame
+    // The timer
     void Update()
     {
         NewGameController gc = FindObjectOfType<NewGameController>();
 
-        if(!gc.end)
+        if(!gc.died && !gc.end && start)
         {
-
+            time -= 1 * Time.deltaTime;
         }
 
         if(time > 10)
@@ -38,39 +43,15 @@ public class NewTimerBehaviour : MonoBehaviour
         }
     }
 
+    // Flashes the timer
     public void TimeStart()
     {
-        NewGameController gc = FindObjectOfType<NewGameController>();
-
-        int n = 60;
-        Debug.Log("Time started");
-        Flash();
-        while(n > 0)
-        {
-            time = n;
-            StartCoroutine(Countdown());
-            n--;
-        }
-    }
-
-    IEnumerator Countdown()
-    {
-        yield return new WaitForSeconds(1);
-    }
-
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(wait);
-    }
-
-    void Flash()
-    {
-        NewGameController gc = FindObjectOfType<NewGameController>();
         bool swi = false;
+        start = true;
 
-        while (!gc.died && gc.end)
+        while (time >= 0)
         {
-            if(!swi)
+            if (!swi)
             {
                 timer1.text = time.ToString();
                 timer2.text = "";
@@ -85,5 +66,20 @@ public class NewTimerBehaviour : MonoBehaviour
 
             StartCoroutine(Delay());
         }
+    }
+
+    // Changes the delay between flashes
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(wait);
+    }
+
+    // Stops the timer
+    public void StopTimer()
+    {
+        start = false;
+        time = -10;
+        timer1.text = "";
+        timer2.text = "";
     }
 }

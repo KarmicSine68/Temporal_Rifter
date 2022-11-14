@@ -18,8 +18,6 @@ public class NewGameController : MonoBehaviour
 
     public TMP_Text lifeText;
 
-    int time;
-
     // Sets the amount of player lives
     void Start()
     {
@@ -28,7 +26,6 @@ public class NewGameController : MonoBehaviour
         win = false;
 
         died = false;
-        time = 0;
     }
 
     // Ends the game when the player runs out of lives
@@ -60,9 +57,10 @@ public class NewGameController : MonoBehaviour
     //Respawns the player
     public void Respawn()
     {
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        tb.StopTimer();
         if (!end)
         {
-            NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
             player.transform.position = new Vector3(spawnX, spawnY, player.transform.position.z);
 
             lives--;
@@ -73,15 +71,6 @@ public class NewGameController : MonoBehaviour
         
         StartCoroutine(Delay());
 
-    }
-
-    public void SetTime(int n)
-    {
-        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-
-        time = n;
-
-        tb.TimeStart();
     }
 
     IEnumerator Delay()

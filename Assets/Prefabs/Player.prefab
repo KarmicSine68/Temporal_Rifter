@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   speed: 20

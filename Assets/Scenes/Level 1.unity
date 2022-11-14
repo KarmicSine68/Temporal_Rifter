@@ -6949,6 +6949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6363691010634877721}
   end: 0
+  win: 0
   died: 0
   lifeText: {fileID: 1847961514}
 --- !u!4 &1148986250
@@ -11523,7 +11524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lives: 6
+  m_text: 'Lives: 5
 
 '
   m_isRightToLeft: 0
