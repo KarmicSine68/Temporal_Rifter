@@ -13,5 +13,8 @@ public class VentEndBehaviour1 : MonoBehaviour
     {
         Cam2Behaviour cb = FindObjectOfType<Cam2Behaviour>();
         cb.Position(min.transform.position.x, min.transform.position.y, max.transform.position.x, max.transform.position.y);
+
+        NewGameController gc = FindObjectOfType<NewGameController>();
+        gc.SetSpawn(spawnpoint.transform.position.x, spawnpoint.transform.position.y);
     }
 }

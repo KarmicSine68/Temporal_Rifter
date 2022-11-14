@@ -35,4 +35,16 @@ public class EndBehaviour : MonoBehaviour
         replay.SetActive(true);
         menu.SetActive(true);
     }
+
+    public void Lose()
+    {
+        Cam2Behaviour cb = FindObjectOfType<Cam2Behaviour>();
+        cb.Position(tele.transform.position.x, tele.transform.position.y, tele.transform.position.x, tele.transform.position.y);
+
+        cam.transform.position = tele.transform.position;
+
+        loseText.SetActive(true);
+        replay.SetActive(true);
+        menu.SetActive(true);
+    }
 }
