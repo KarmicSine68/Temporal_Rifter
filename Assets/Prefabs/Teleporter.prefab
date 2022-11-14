@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7078713163349538810}
   - component: {fileID: 7078713163349538811}
   - component: {fileID: -8825275296918994664}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Teleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,3 +75,4 @@ MonoBehaviour:
   tele: {fileID: 0}
   min: {fileID: 0}
   max: {fileID: 0}
+  time: 0

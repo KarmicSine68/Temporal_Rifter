@@ -12,6 +12,7 @@ public class NewGameController : MonoBehaviour
 
     int lives;
     public bool end;
+    public bool win;
 
     public bool died;
 
@@ -24,11 +25,13 @@ public class NewGameController : MonoBehaviour
     {
         lives = 5;
         end = false;
+        win = false;
+
         died = false;
         time = 0;
     }
 
-    // Update is called once per frame
+    // Ends the game when the player runs out of lives
     void Update()
     {
         if (lives < 0)
@@ -38,7 +41,10 @@ public class NewGameController : MonoBehaviour
         }
         else
         {
-            lifeText.text = "Lives: " + lives.ToString();
+            if (!end && !win)
+            {
+                lifeText.text = "Lives: " + lives.ToString();
+            }
         }
     }
 
@@ -57,11 +63,11 @@ public class NewGameController : MonoBehaviour
         if (!end)
         {
             NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-            player.transform.position = new Vector3(spawnX, spawnY, transform.position.z);
+            player.transform.position = new Vector3(spawnX, spawnY, player.transform.position.z);
 
             lives--;
 
-            tb.TimeStart(time);
+            tb.TimeStart();
         }
         died = true;
         
@@ -75,7 +81,7 @@ public class NewGameController : MonoBehaviour
 
         time = n;
 
-        tb.TimeStart(time);
+        tb.TimeStart();
     }
 
     IEnumerator Delay()
@@ -84,10 +90,18 @@ public class NewGameController : MonoBehaviour
         died = false;
     }
 
+    // Ends the game
     void GameOver()
     {
         EndBehaviour eb = FindObjectOfType<EndBehaviour>();
         eb.Lose();
+        lifeText.text = "";
+    }
+
+    public void Victory()
+    {
+        win = true;
+        Debug.Log("Victory");
         lifeText.text = "";
     }
 }

@@ -38,13 +38,14 @@ public class NewTimerBehaviour : MonoBehaviour
         }
     }
 
-    public void TimeStart(int n)
+    public void TimeStart()
     {
         NewGameController gc = FindObjectOfType<NewGameController>();
 
+        int n = 60;
         Debug.Log("Time started");
         Flash();
-        while(!gc.died && gc.end)
+        while(n > 0)
         {
             time = n;
             StartCoroutine(Countdown());
