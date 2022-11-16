@@ -593,6 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99588413}
   - component: {fileID: 99588412}
+  - component: {fileID: 99588414}
   m_Layer: 9
   m_Name: Door (Background) 2
   m_TagString: Untagged
@@ -667,6 +668,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &99588414
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99588411}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 2.5}
+    newSize: {x: 2.5, y: 2.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!1001 &126699756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1323,6 +1350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198173559}
   - component: {fileID: 198173558}
+  - component: {fileID: 198173560}
   m_Layer: 9
   m_Name: Door (Background) 3
   m_TagString: Untagged
@@ -1397,6 +1425,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &198173560
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198173557}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 2.5}
+    newSize: {x: 2.5, y: 2.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!1001 &200349863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4070,14 +4124,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 577532487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec6a4cc35bd8f64fa31c5f210479563, type: 3}
+  m_Script: {fileID: 11500000, guid: ac70ba9e66482014a836850e1613442c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6363691010634877721}
   tele: {fileID: 396769347}
   min: {fileID: 2118056619}
   max: {fileID: 51783313}
-  time: 40
 --- !u!1001 &585563523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4631,7 +4684,6 @@ MonoBehaviour:
   tele: {fileID: 1460273149}
   min: {fileID: 1094166909}
   max: {fileID: 1461446893}
-  time: 60
 --- !u!61 &670172322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7938,6 +7990,8 @@ MonoBehaviour:
   menu: {fileID: 443473412}
   tele: {fileID: 1256184605}
   cam: {fileID: 2092106753}
+  timer1: {fileID: 972648668}
+  timer2: {fileID: 301914339}
 --- !u!61 &1289201951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10655,7 +10709,6 @@ MonoBehaviour:
   tele: {fileID: 396769347}
   min: {fileID: 2118056619}
   max: {fileID: 51783313}
-  time: 0
 --- !u!61 &1689313489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10708,6 +10761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721933845}
   - component: {fileID: 1721933844}
+  - component: {fileID: 1721933846}
   m_Layer: 9
   m_Name: Door (Background)
   m_TagString: Untagged
@@ -10782,6 +10836,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1721933846
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721933843}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 2.5}
+    newSize: {x: 2.5, y: 2.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!1001 &1726473035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13866,6 +13946,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2404064074169644984, guid: a11bf852f3a2ab94ca6c95684980147e, type: 3}
+      propertyPath: jumpLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 2404064074169644991, guid: a11bf852f3a2ab94ca6c95684980147e, type: 3}
       propertyPath: m_RootOrder
       value: 3

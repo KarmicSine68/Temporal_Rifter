@@ -8,48 +8,91 @@ public class NewTimerBehaviour : MonoBehaviour
     public TMP_Text timer1;
     public TMP_Text timer2;
 
-    float time;
-    float wait;
+    int time;
+    //float wait;
 
     bool start;
+    bool swi;
 
     // Doesn't display clock when game is loaded
     void Start()
     {
+        swi = false;
         start = false;
         timer1.text = "";
         timer2.text = "";
         time = 999;
-        wait = 1;
     }
 
-    // The timer
-    void Update()
+    void Countdown()
     {
-        NewGameController gc = FindObjectOfType<NewGameController>();
-
-        if(!gc.died && !gc.end && start)
+        if(start == false)
         {
-            time -= 1 * Time.deltaTime;
+            CancelInvoke("Countdown");
         }
-
-        if(time > 10)
-        {
-            wait = 1;
-        }
-        else
-        {
-            wait = 0.5f;
-        }
+        
+        time -= 1;
     }
 
     // Flashes the timer
-    public void TimeStart()
+    public void TimeStart(int n)
     {
-        bool swi = false;
+        Debug.Log("Countdown successful");
+
+        time = n;
+
         start = true;
 
-        while (time >= 0)
+        InvokeRepeating("Flash", 0, 1);
+        InvokeRepeating("Countdown", 0, 1);
+    }
+
+    void Flash()
+    {
+        if(start == false)
+        {
+            //time = 0;
+            CancelInvoke();
+        }
+
+        if (!swi)
+        {
+            timer1.text = time.ToString();
+            timer2.text = "";
+            swi = true;
+        }
+        else
+        {
+            timer1.text = "";
+            timer2.text = time.ToString();
+            swi = false;
+        }
+
+        if(time <= 10)
+        {
+            CancelInvoke();
+            InvokeRepeating("Fast", 0, 0.5f);
+            InvokeRepeating("Countdown", 1, 1);
+        }
+    }
+
+    void Fast()
+    {
+        if (start == false)
+        {
+            //time = 0;
+            CancelInvoke();
+        }
+
+        if(time <= 0)
+        {
+            CancelInvoke();
+
+            NewGameController gc = FindObjectOfType<NewGameController>();
+            gc.Respawn();
+        }
+
+        if (start)
         {
             if (!swi)
             {
@@ -63,22 +106,22 @@ public class NewTimerBehaviour : MonoBehaviour
                 timer2.text = time.ToString();
                 swi = false;
             }
-
-            StartCoroutine(Delay());
         }
-    }
-
-    // Changes the delay between flashes
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(wait);
     }
 
     // Stops the timer
     public void StopTimer()
     {
         start = false;
-        time = -10;
+        //time = 0;
+        timer1.text = "";
+        timer2.text = "";
+        Debug.Log("Timer stopped");
+    }
+
+    public void Goodbye()
+    {
+        start = false;
         timer1.text = "";
         timer2.text = "";
     }

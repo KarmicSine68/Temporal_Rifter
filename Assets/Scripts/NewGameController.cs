@@ -13,10 +13,13 @@ public class NewGameController : MonoBehaviour
     int lives;
     public bool end;
     public bool win;
+    bool lose;
 
     public bool died;
 
     public TMP_Text lifeText;
+
+    int store;
 
     // Sets the amount of player lives
     void Start()
@@ -26,6 +29,7 @@ public class NewGameController : MonoBehaviour
         win = false;
 
         died = false;
+        lose = false;
     }
 
     // Ends the game when the player runs out of lives
@@ -33,7 +37,7 @@ public class NewGameController : MonoBehaviour
     {
         if (lives < 0)
         {
-            end = true;
+            lose = true;
             GameOver();
         }
         else
@@ -59,32 +63,43 @@ public class NewGameController : MonoBehaviour
     {
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
         tb.StopTimer();
-        if (!end)
+
+        lives--;
+        if (!lose)
         {
             player.transform.position = new Vector3(spawnX, spawnY, player.transform.position.z);
 
-            lives--;
+            died = true;
 
-            tb.TimeStart();
+            StartCoroutine(Delay());
         }
-        died = true;
-        
-        StartCoroutine(Delay());
+    }
 
+    public void StoreTime(int n)
+    {
+        store = n;
     }
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         died = false;
+
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        tb.TimeStart(store);
     }
 
     // Ends the game
     void GameOver()
     {
+        end = true;
         EndBehaviour eb = FindObjectOfType<EndBehaviour>();
         eb.Lose();
+
         lifeText.text = "";
+
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        tb.Goodbye();
     }
 
     public void Victory()
@@ -92,5 +107,9 @@ public class NewGameController : MonoBehaviour
         win = true;
         Debug.Log("Victory");
         lifeText.text = "";
+
+        NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        tb.StopTimer();
+        tb.Goodbye();
     }
 }

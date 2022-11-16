@@ -10,6 +10,7 @@ public class InstructionBehaviour : MonoBehaviour
     public GameObject start;
     public GameObject help;
     public GameObject leave;
+    public GameObject title;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class InstructionBehaviour : MonoBehaviour
         start.SetActive(true);
         help.SetActive(true);
         leave.SetActive(true);
+        title.SetActive(true);
     }
 
     public void Display()
@@ -27,6 +29,7 @@ public class InstructionBehaviour : MonoBehaviour
         start.SetActive(false);
         help.SetActive(false);
         leave.SetActive(false);
+        title.SetActive(false);
     }
 
     public void UnDisplay()
@@ -36,5 +39,6 @@ public class InstructionBehaviour : MonoBehaviour
         start.SetActive(true);
         help.SetActive(true);
         leave.SetActive(true);
+        title.SetActive(true);
     }
 }

@@ -12,6 +12,9 @@ public class TheEndBehaviour : MonoBehaviour
     public GameObject tele;
     public GameObject cam;
 
+    public GameObject timer1;
+    public GameObject timer2;
+
     // Sets the canvas to unactive at the start
     void Start()
     {
@@ -19,6 +22,9 @@ public class TheEndBehaviour : MonoBehaviour
         loseText.SetActive(false);
         replay.SetActive(false);
         menu.SetActive(false);
+
+        timer1.SetActive(true);
+        timer2.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,19 +38,10 @@ public class TheEndBehaviour : MonoBehaviour
         replay.SetActive(true);
         menu.SetActive(true);
 
+        timer1.SetActive(false);
+        timer2.SetActive(false);
+
         NewGameController gc = FindObjectOfType<NewGameController>();
         gc.Victory();
-    }
-
-    public void Lose()
-    {
-        Cam2Behaviour cb = FindObjectOfType<Cam2Behaviour>();
-        cb.Position(tele.transform.position.x, tele.transform.position.y, tele.transform.position.x, tele.transform.position.y);
-
-        cam.transform.position = tele.transform.position;
-
-        loseText.SetActive(true);
-        replay.SetActive(true);
-        menu.SetActive(true);
     }
 }
