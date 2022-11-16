@@ -47,6 +47,11 @@ public class NewGameController : MonoBehaviour
                 lifeText.text = "Lives: " + lives.ToString();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
     }
 
     //Sets the spawnpoint location
