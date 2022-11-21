@@ -20,7 +20,7 @@ public class VentEndBehaviour1 : MonoBehaviour
         gc.SetSpawn(spawnpoint.transform.position.x, spawnpoint.transform.position.y);
 
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-        tb.TimeStart(40);
-        gc.StoreTime(40);
+        tb.TimeStart(45);
+        gc.StoreTime(45);
     }
 }

@@ -24,13 +24,13 @@ public class NewTeleportBehaviour : MonoBehaviour
         StartCoroutine("Delay");
 
         NewGameController gc = FindObjectOfType<NewGameController>();
-        gc.StoreTime(60);
+        gc.StoreTime(75);
     }
 
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1);
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-        tb.TimeStart(60);
+        tb.TimeStart(75);
     }
 }
