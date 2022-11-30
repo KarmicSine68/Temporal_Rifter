@@ -24,6 +24,7 @@ public class NewTimerBehaviour : MonoBehaviour
         time = 999;
     }
 
+    // Decreases the time by 1 second every second
     void Countdown()
     {
         if(start == false)
@@ -34,7 +35,7 @@ public class NewTimerBehaviour : MonoBehaviour
         time -= 1;
     }
 
-    // Flashes the timer
+    // Starts the timer
     public void TimeStart(int n)
     {
         Debug.Log("Countdown successful");
@@ -47,14 +48,17 @@ public class NewTimerBehaviour : MonoBehaviour
         InvokeRepeating("Countdown", 0, 1);
     }
 
+    // Flashes the timer
     void Flash()
     {
+        // stops the timer from counting down
         if(start == false)
         {
             //time = 0;
             CancelInvoke();
         }
 
+        // Displays the time
         if (!swi)
         {
             timer1.text = time.ToString();
@@ -68,6 +72,7 @@ public class NewTimerBehaviour : MonoBehaviour
             swi = false;
         }
 
+        // Switches to a faster flash for the last 10 seconds
         if(time <= 10)
         {
             CancelInvoke();
@@ -76,14 +81,17 @@ public class NewTimerBehaviour : MonoBehaviour
         }
     }
 
+    // Flashes the timer faster
     void Fast()
     {
+        // Stops the timer
         if (start == false)
         {
             //time = 0;
             CancelInvoke();
         }
 
+        // Respawns the player if they run out of time
         if(time <= 0)
         {
             CancelInvoke();
@@ -92,6 +100,7 @@ public class NewTimerBehaviour : MonoBehaviour
             gc.Respawn();
         }
 
+        // Displays the time
         if (start)
         {
             if (!swi)
@@ -119,6 +128,7 @@ public class NewTimerBehaviour : MonoBehaviour
         Debug.Log("Timer stopped");
     }
 
+    // Stops displaying the time for the win and lose screen
     public void Goodbye()
     {
         start = false;

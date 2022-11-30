@@ -5,6 +5,7 @@ using UnityEngine;
 public class LeverBehaviour : MonoBehaviour
 {
     public GameObject door;
+    public GameObject lever;
     bool near = false;
     bool flip;
     float yrotate;
@@ -22,7 +23,7 @@ public class LeverBehaviour : MonoBehaviour
             {
                 Flip();
                 Vector3 rotate = new Vector3(0, yrotate, 0);
-                transform.eulerAngles = rotate;
+                lever.transform.eulerAngles = rotate;
             }
         }
     }
@@ -58,5 +59,20 @@ public class LeverBehaviour : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         near = false;
+    }
+
+    public void Original()
+    {
+        Vector3 doorPos = door.transform.position;
+
+        if (yrotate == 180)
+        {
+            yrotate = 0;
+            doorPos.y -= 5f;
+            door.transform.position = doorPos;
+
+            Debug.Log("Lever 2 switched");
+            flip = false;
+        }
     }
 }

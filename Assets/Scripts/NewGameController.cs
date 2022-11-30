@@ -66,25 +66,35 @@ public class NewGameController : MonoBehaviour
     //Respawns the player
     public void Respawn()
     {
+        // Stops the timer from counting down
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
         tb.StopTimer();
 
         lives--;
         if (!lose)
         {
+            // Resets the enemy to their starting position
+            EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+            eb.EnemyReset();
+
             player.transform.position = new Vector3(spawnX, spawnY, player.transform.position.z);
 
             died = true;
+
+            LeverBehaviour lb = FindObjectOfType<LeverBehaviour>();
+            lb.Original();
 
             StartCoroutine(Delay());
         }
     }
 
+    // Stores the timer value of the room
     public void StoreTime(int n)
     {
         store = n;
     }
 
+    // Restarts the timer after the player respawns
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1f);
@@ -99,20 +109,24 @@ public class NewGameController : MonoBehaviour
     {
         end = true;
         EndBehaviour eb = FindObjectOfType<EndBehaviour>();
+        // Displays the end screen
         eb.Lose();
 
         lifeText.text = "";
 
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+        // Stops displaying the timer
         tb.Goodbye();
     }
 
     public void Victory()
     {
+        // Stops displaying the lives
         win = true;
         Debug.Log("Victory");
         lifeText.text = "";
 
+        // Stops the timer and its display
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
         tb.StopTimer();
         tb.Goodbye();
