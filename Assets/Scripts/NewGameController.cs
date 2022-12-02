@@ -24,7 +24,6 @@ public class NewGameController : MonoBehaviour
     // Sets the amount of player lives
     void Start()
     {
-        lives = 5;
         end = false;
         win = false;
 
@@ -54,6 +53,12 @@ public class NewGameController : MonoBehaviour
         }
     }
 
+    // Makes the player able to lose
+    public void SetMortal()
+    {
+        lives = 5;
+    }
+
     //Sets the spawnpoint location
     public void SetSpawn(float x, float y)
     {
@@ -63,6 +68,12 @@ public class NewGameController : MonoBehaviour
         Debug.Log("Spawn set");
     }
 
+    // Makes the player immortal
+    public void SetImmortal()
+    {
+        lives = 999;
+    }
+
     //Respawns the player
     public void Respawn()
     {
@@ -70,7 +81,11 @@ public class NewGameController : MonoBehaviour
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
         tb.StopTimer();
 
-        lives--;
+        // Prevents the player from losing lives while immortal
+        if (lives != 999)
+        {
+            lives--;
+        }
         if (!lose)
         {
             // Resets the enemy to their starting position

@@ -22,6 +22,9 @@ public class NewTimerBehaviour : MonoBehaviour
         timer1.text = "";
         timer2.text = "";
         time = 999;
+
+        NewGameController gc = FindObjectOfType<NewGameController>();
+        gc.StoreTime(time);
     }
 
     // Decreases the time by 1 second every second
@@ -43,9 +46,11 @@ public class NewTimerBehaviour : MonoBehaviour
         time = n;
 
         start = true;
-
-        InvokeRepeating("Flash", 0, 1);
-        InvokeRepeating("Countdown", 0, 1);
+        if (time != 999)
+        {
+            InvokeRepeating("Flash", 0, 1);
+            InvokeRepeating("Countdown", 0, 1);
+        }
     }
 
     // Flashes the timer
