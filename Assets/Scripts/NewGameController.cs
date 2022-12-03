@@ -23,6 +23,8 @@ public class NewGameController : MonoBehaviour
 
     bool isEnemy;
 
+    bool dev;
+
     // Sets the amount of player lives
     void Start()
     {
@@ -54,6 +56,14 @@ public class NewGameController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+
+        if(dev)
+        {
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Debug.Log("Time slowed");
+            }
         }
     }
 
@@ -114,6 +124,20 @@ public class NewGameController : MonoBehaviour
 
             StartCoroutine(Delay());
         }
+    }
+
+    // Allows the time slow mechanic to be used
+    public void DeviceOn()
+    {
+        Debug.Log("Device active");
+
+        dev = true;
+    }
+
+    // Disables the time slow mechanic for the level
+    public void DeviceOff()
+    {
+        dev = false;
     }
 
     // Stores the timer value of the room

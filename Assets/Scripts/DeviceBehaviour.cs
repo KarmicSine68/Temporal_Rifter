@@ -6,8 +6,8 @@ public class DeviceBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameController gc = GameObject.FindObjectOfType<GameController>();
-        gc.Device();
+        NewGameController gc = GameObject.FindObjectOfType<NewGameController>();
+        gc.DeviceOn();
         Destroy(gameObject);
     }
 }

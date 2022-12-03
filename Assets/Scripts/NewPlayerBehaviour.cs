@@ -33,7 +33,7 @@ public class NewPlayerBehaviour : MonoBehaviour
 
     private void Jump()
     {
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isJump())
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && isJump())
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, 20);
         }
