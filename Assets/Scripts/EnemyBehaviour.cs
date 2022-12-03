@@ -21,6 +21,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Ensures that the enemy starts in the same spot
     private void Start()
     {
+        // Tells the game controller that an enemy is in the level
+        NewGameController gc = FindObjectOfType<NewGameController>();
+        gc.Enemy();
+
         rb2D = GetComponent<Rigidbody2D>();
         rb2D.freezeRotation = true;
 
@@ -43,6 +47,16 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         rb2D.velocity = new Vector2(move, rb2D.velocity.y);
+    }
+
+    // Respawns the player if they touch an enemy
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            NewGameController gc = FindObjectOfType<NewGameController>();
+            gc.Respawn();
+        }
     }
 
     // Resets the enemy to its spawnpoint when the player gets captured

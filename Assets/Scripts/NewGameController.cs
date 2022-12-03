@@ -21,6 +21,8 @@ public class NewGameController : MonoBehaviour
 
     int store;
 
+    bool isEnemy;
+
     // Sets the amount of player lives
     void Start()
     {
@@ -29,6 +31,8 @@ public class NewGameController : MonoBehaviour
 
         died = false;
         lose = false;
+
+        isEnemy = false;
     }
 
     // Ends the game when the player runs out of lives
@@ -74,6 +78,12 @@ public class NewGameController : MonoBehaviour
         lives = 999;
     }
 
+    // Checks to see if there are enemies in the level
+    public void Enemy()
+    {
+        isEnemy = true;
+    }
+
     //Respawns the player
     public void Respawn()
     {
@@ -88,9 +98,12 @@ public class NewGameController : MonoBehaviour
         }
         if (!lose)
         {
-            // Resets the enemy to their starting position
-            EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
-            eb.EnemyReset();
+            if (isEnemy == true)
+            {
+                // Resets the enemy to their starting position
+                EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+                eb.EnemyReset();
+            }
 
             player.transform.position = new Vector3(spawnX, spawnY, player.transform.position.z);
 
