@@ -37,12 +37,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(transform.position.x <= waypoint1.transform.position.x)
         {
-            Debug.Log("Waypoint1 triggered");
+            //Debug.Log("Waypoint1 triggered");
             move = 10;
         }
         if(transform.position.x >= waypoint2.transform.position.x)
         {
-            Debug.Log("Waypoint2 triggered");
+            //Debug.Log("Waypoint2 triggered");
             move = -10;
         }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShortestTeleportBehaviour : MonoBehaviour
+public class ShortestTeleporterBehaviour : MonoBehaviour
 {
     public GameObject player;
     public GameObject tele;
@@ -24,13 +24,13 @@ public class ShortestTeleportBehaviour : MonoBehaviour
         StartCoroutine("Delay");
 
         NewGameController gc = FindObjectOfType<NewGameController>();
-        gc.StoreTime(30);
+        gc.StoreTime(25);
     }
 
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1);
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-        tb.TimeStart(30);
+        tb.TimeStart(25);
     }
 }

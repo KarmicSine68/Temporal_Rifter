@@ -24,6 +24,7 @@ public class NewGameController : MonoBehaviour
     bool isEnemy;
 
     bool dev;
+    bool off;
 
     // Sets the amount of player lives
     void Start()
@@ -35,6 +36,7 @@ public class NewGameController : MonoBehaviour
         lose = false;
 
         isEnemy = false;
+        off = false;
     }
 
     // Ends the game when the player runs out of lives
@@ -63,8 +65,49 @@ public class NewGameController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.LeftShift))
             {
                 Debug.Log("Time slowed");
+                NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+                tb.TimeSlow();
+                dev = false;
+                off = true;
+
+                StartCoroutine(RanOut());
             }
         }
+        else if(off)
+        {
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Debug.Log("Time resumed");
+                off = false;
+                StartCoroutine(Enable());
+
+                NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+                tb.TimeNormal();
+            }
+        }
+    }
+
+    IEnumerator RanOut()
+    {
+        if (off)
+        {
+            yield return new WaitForSeconds(10);
+            Debug.Log("Device Off");
+            off = false;
+
+            StartCoroutine(Enable());
+
+            NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
+            tb.TimeNormal();
+        }
+    }
+
+    // Reenables the ability to slow time after 10 seconds
+    IEnumerator Enable()
+    {
+        yield return new WaitForSeconds(10);
+        Debug.Log("Device On");
+        dev = true;
     }
 
     // Makes the player able to lose

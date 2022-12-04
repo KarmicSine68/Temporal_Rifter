@@ -14,11 +14,14 @@ public class NewTimerBehaviour : MonoBehaviour
     bool start;
     bool swi;
 
+    bool slow;
+
     // Doesn't display clock when game is loaded
     void Start()
     {
         swi = false;
         start = false;
+        slow = false;
         timer1.text = "";
         timer2.text = "";
         time = 999;
@@ -53,17 +56,32 @@ public class NewTimerBehaviour : MonoBehaviour
         }
     }
 
-    // Flashes the timer
-    void Flash()
+    public void TimeSlow()
     {
-        // stops the timer from counting down
-        if(start == false)
-        {
-            //time = 0;
-            CancelInvoke();
-        }
+        start = true;
 
-        // Displays the time
+        CancelInvoke("Countdown");
+        CancelInvoke("Flash");
+        CancelInvoke("Fast");
+
+        slow = true;
+
+        InvokeRepeating("Countdown", 2, 4);
+        if (time > 10)
+        {
+            InvokeRepeating("Flash", 1, 4);
+        }
+        else if((0 < time) && (time <= 10))
+        {
+            InvokeRepeating("Fast", 0.5f, 2);
+        }
+    }
+
+    public void TimeNormal()
+    {
+        CancelInvoke("Countdown");
+        CancelInvoke("Flash");
+        CancelInvoke("Fast");
         if (!swi)
         {
             timer1.text = time.ToString();
@@ -77,12 +95,62 @@ public class NewTimerBehaviour : MonoBehaviour
             swi = false;
         }
 
+        slow = true;
+
+        InvokeRepeating("Countdown", 2, 1);
+        if (time > 10)
+        {
+            InvokeRepeating("Flash", 1, 1);
+        }
+        else if ((0 < time) && (time <= 10))
+        {
+            InvokeRepeating("Fast", 1, 0.5f);
+        }
+    }
+
+    // Flashes the timer
+    void Flash()
+    {
+        // stops the timer from counting down
+        if(start == false)
+        {
+            //time = 0;
+            CancelInvoke();
+            timer1.text = "";
+            timer2.text = "";
+        }
+
+        if (start)
+        {
+            // Displays the time
+            if (!swi)
+            {
+                timer1.text = time.ToString();
+                timer2.text = "";
+                swi = true;
+            }
+            else
+            {
+                timer1.text = "";
+                timer2.text = time.ToString();
+                swi = false;
+            }
+        }
+
         // Switches to a faster flash for the last 10 seconds
         if(time <= 10)
         {
             CancelInvoke();
-            InvokeRepeating("Fast", 0, 0.5f);
-            InvokeRepeating("Countdown", 1, 1);
+            if (slow)
+            {
+                InvokeRepeating("Fast", 0, 2f);
+                InvokeRepeating("Countdown", 1, 4);
+            }
+            else
+            {
+                InvokeRepeating("Fast", 0, 0.5f);
+                InvokeRepeating("Countdown", 1, 1);
+            }
         }
     }
 
@@ -92,8 +160,9 @@ public class NewTimerBehaviour : MonoBehaviour
         // Stops the timer
         if (start == false)
         {
-            //time = 0;
             CancelInvoke();
+            timer1.text = "";
+            timer2.text = "";
         }
 
         // Respawns the player if they run out of time
@@ -127,7 +196,6 @@ public class NewTimerBehaviour : MonoBehaviour
     public void StopTimer()
     {
         start = false;
-        //time = 0;
         timer1.text = "";
         timer2.text = "";
         Debug.Log("Timer stopped");
