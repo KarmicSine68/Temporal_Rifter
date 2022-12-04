@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class TimedDoorBehaviour : MonoBehaviour
 {
@@ -10,11 +9,10 @@ public class TimedDoorBehaviour : MonoBehaviour
     bool push;
 
     int time;
-
     private void Start()
     {
         push = false;
-        time = 3000;
+        time = 1;
     }
 
     void Update()
@@ -33,22 +31,27 @@ public class TimedDoorBehaviour : MonoBehaviour
         near = true;
     }
 
-    async private void Push()
+    private void Push()
     {
         Vector3 doorPos = door.transform.position;
         if (!push)
         {
             push = true;
-            doorPos.y += 3f;
+            doorPos.y += 5f;
             door.transform.position = doorPos;
             Debug.Log("Button pushed");
-
-            await Task.Delay(time);
-            doorPos.y -= 3f;
-            door.transform.position = doorPos;
-            Debug.Log("Door closed");
-            push = false;
+            StartCoroutine(Delay());
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(time);
+        Vector3 doorPos = door.transform.position;
+        doorPos.y -= 5f;
+        door.transform.position = doorPos;
+        Debug.Log("Door closed");
+        push = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -63,6 +66,6 @@ public class TimedDoorBehaviour : MonoBehaviour
 
     public void ResumeTime()
     {
-        time *= 2;
+        time /= 2;
     }
 }
