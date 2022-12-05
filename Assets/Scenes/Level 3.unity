@@ -4149,7 +4149,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2404064074169644984, guid: a11bf852f3a2ab94ca6c95684980147e, type: 3}
       propertyPath: jumpLayer.m_Bits
-      value: 384
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2404064074169644991, guid: a11bf852f3a2ab94ca6c95684980147e, type: 3}
       propertyPath: m_RootOrder
