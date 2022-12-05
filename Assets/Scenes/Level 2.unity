@@ -420,7 +420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 121.4, y: -20}
+  m_AnchoredPosition: {x: 176.6, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51942242
@@ -1857,9 +1857,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 124048371}
         m_TargetAssemblyTypeName: ButtonBehaviour, Assembly-CSharp
-        m_MethodName: Level2
+        m_MethodName: Level3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6370,8 +6370,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195029667}
-  - component: {fileID: 1195029669}
   - component: {fileID: 1195029668}
+  - component: {fileID: 1195029669}
   m_Layer: 10
   m_Name: End Teleporter
   m_TagString: Untagged
@@ -6430,11 +6430,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1195029665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7deccb10940cd4e874165ab37da481, type: 3}
+  m_Script: {fileID: 11500000, guid: f07ed60df9ca7e146b15dc39fcc4a171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winText: {fileID: 308289214}
   loseText: {fileID: 258800188}
+  next: {fileID: 275171660}
   replay: {fileID: 2083760153}
   menu: {fileID: 51942240}
   tele: {fileID: 422960495}
@@ -10881,7 +10882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -153.38, y: -20}
+  m_AnchoredPosition: {x: 2.3, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083760155

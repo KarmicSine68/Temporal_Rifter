@@ -90,7 +90,7 @@ public class NewGameController : MonoBehaviour
 
     IEnumerator RanOut()
     {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
             Debug.Log("Device Off");
             not.SetActive(true);
             usin.SetActive(false);

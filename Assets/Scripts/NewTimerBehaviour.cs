@@ -55,29 +55,30 @@ public class NewTimerBehaviour : MonoBehaviour
 
     public void TimeSlow()
     {
-        start = true;
-
         CancelInvoke("Countdown");
         CancelInvoke("Flash");
         CancelInvoke("Fast");
 
         slow = true;
 
-        InvokeRepeating("Countdown", 2, 4);
-        if (time > 10)
+        if (start)
         {
-            InvokeRepeating("Flash", 1, 4);
-        }
-        else if((0 < time) && (time <= 10))
-        {
-            InvokeRepeating("Fast", 0.5f, 2);
+            InvokeRepeating("Countdown", 2, 4);
+            if (time > 10)
+            {
+                InvokeRepeating("Flash", 1, 4);
+            }
+            else if ((0 < time) && (time <= 10))
+            {
+                InvokeRepeating("Fast", 0.5f, 2);
+            }
         }
 
-        //TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
-        //tdb.SlowTime();
+        TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
+        tdb.SlowTime();
 
-        //EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
-        //eb.TimeSlow();
+        EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+        eb.TimeSlow();
     }
 
     public void TimeNormal()
@@ -85,35 +86,42 @@ public class NewTimerBehaviour : MonoBehaviour
         CancelInvoke("Countdown");
         CancelInvoke("Flash");
         CancelInvoke("Fast");
-        if (!swi)
+
+        if (start)
         {
-            timer1.text = time.ToString();
-            timer2.text = "";
-            swi = true;
-        }
-        else
-        {
-            timer1.text = "";
-            timer2.text = time.ToString();
-            swi = false;
+            if (!swi)
+            {
+                timer1.text = time.ToString();
+                timer2.text = "";
+                swi = true;
+            }
+            else
+            {
+                timer1.text = "";
+                timer2.text = time.ToString();
+                swi = false;
+            }
         }
 
-        slow = true;
+        slow = false;
 
-        InvokeRepeating("Countdown", 2, 1);
-        if (time > 10)
+        if (start)
         {
-            InvokeRepeating("Flash", 1, 1);
+            InvokeRepeating("Countdown", 2, 1);
+            if (time > 10)
+            {
+                InvokeRepeating("Flash", 1, 1);
+            }
+            else if ((0 < time) && (time <= 10))
+            {
+                InvokeRepeating("Fast", 1, 0.5f);
+            }
         }
-        else if ((0 < time) && (time <= 10))
-        {
-            InvokeRepeating("Fast", 1, 0.5f);
-        }
-        //TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
-        //tdb.ResumeTime();
+        TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
+        tdb.ResumeTime();
 
-        //EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
-        //eb.TimeNormal();
+        EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+        eb.TimeNormal();
     }
 
     // Flashes the timer

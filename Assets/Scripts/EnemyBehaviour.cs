@@ -18,6 +18,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     float move;
 
+    bool slow;
+
     // Ensures that the enemy starts in the same spot
     private void Start()
     {
@@ -29,7 +31,9 @@ public class EnemyBehaviour : MonoBehaviour
         rb2D.freezeRotation = true;
 
         transform.position = enemySpawn.transform.position;
-        move = 10;
+        move = 15;
+
+        slow = false;
     }
 
     // Moves the enemy
@@ -37,13 +41,25 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(transform.position.x <= waypoint1.transform.position.x)
         {
-            //Debug.Log("Waypoint1 triggered");
-            move = 10;
+            if (!slow)
+            {
+                move = 15;
+            }
+            else
+            {
+                move *= -1;
+            }
         }
-        if(transform.position.x >= waypoint2.transform.position.x)
+        if (transform.position.x >= waypoint2.transform.position.x)
         {
-            //Debug.Log("Waypoint2 triggered");
-            move = -10;
+            if (!slow)
+            {
+                move = -15;
+            }
+            else
+            {
+                move *= -1;
+            }
         }
 
         rb2D.velocity = new Vector2(move, rb2D.velocity.y);
@@ -61,11 +77,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void TimeSlow()
     {
+        slow = true;
         move /= 4;
     }
 
     public void TimeNormal()
     {
+        slow = false;
         move *= 4;
     }
 
