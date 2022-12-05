@@ -32,6 +32,11 @@ public class ButtonBehaviour : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(4);
     }
 
+    public void Tutorial()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
     public void Leave()
     {
         Application.Quit();

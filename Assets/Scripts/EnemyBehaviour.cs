@@ -59,6 +59,16 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    public void TimeSlow()
+    {
+        move /= 4;
+    }
+
+    public void TimeNormal()
+    {
+        move *= 4;
+    }
+
     // Resets the enemy to its spawnpoint when the player gets captured
     public void EnemyReset()
     {

@@ -78,6 +78,9 @@ public class NewTimerBehaviour : MonoBehaviour
 
         TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
         tdb.SlowTime();
+
+        EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+        eb.TimeSlow();
     }
 
     public void TimeNormal()
@@ -111,6 +114,9 @@ public class NewTimerBehaviour : MonoBehaviour
         }
         TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
         tdb.ResumeTime();
+
+        EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+        eb.TimeNormal();
     }
 
     // Flashes the timer

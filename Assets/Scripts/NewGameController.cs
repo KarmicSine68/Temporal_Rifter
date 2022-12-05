@@ -60,6 +60,11 @@ public class NewGameController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if(dev)
         {
             if(Input.GetKeyDown(KeyCode.LeftShift))
