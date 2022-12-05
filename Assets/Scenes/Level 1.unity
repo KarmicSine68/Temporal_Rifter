@@ -6948,6 +6948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6363691010634877721}
+  ready: {fileID: 371854603}
+  not: {fileID: 371854603}
+  usin: {fileID: 371854603}
   end: 0
   win: 0
   died: 0

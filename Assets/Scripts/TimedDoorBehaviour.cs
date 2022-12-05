@@ -62,11 +62,11 @@ public class TimedDoorBehaviour : MonoBehaviour
 
     public void SlowTime()
     {
-        time *= 4;
+        time *= 8;
     }
 
     public void ResumeTime()
     {
-        time /= 4;
+        time /= 8;
     }
 }

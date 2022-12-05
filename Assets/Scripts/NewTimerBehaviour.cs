@@ -73,11 +73,11 @@ public class NewTimerBehaviour : MonoBehaviour
             InvokeRepeating("Fast", 0.5f, 2);
         }
 
-        TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
-        tdb.SlowTime();
+        //TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
+        //tdb.SlowTime();
 
-        EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
-        eb.TimeSlow();
+        //EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+        //eb.TimeSlow();
     }
 
     public void TimeNormal()
@@ -109,11 +109,11 @@ public class NewTimerBehaviour : MonoBehaviour
         {
             InvokeRepeating("Fast", 1, 0.5f);
         }
-        TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
-        tdb.ResumeTime();
+        //TimedDoorBehaviour tdb = FindObjectOfType<TimedDoorBehaviour>();
+        //tdb.ResumeTime();
 
-        EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
-        eb.TimeNormal();
+        //EnemyBehaviour eb = FindObjectOfType<EnemyBehaviour>();
+        //eb.TimeNormal();
     }
 
     // Flashes the timer
