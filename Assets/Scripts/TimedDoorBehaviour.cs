@@ -8,11 +8,12 @@ public class TimedDoorBehaviour : MonoBehaviour
     bool near = false;
     bool push;
 
-    int time;
+    float time;
+
     private void Start()
     {
         push = false;
-        time = 1;
+        time = 0.5f;
     }
 
     void Update()
@@ -61,11 +62,11 @@ public class TimedDoorBehaviour : MonoBehaviour
 
     public void SlowTime()
     {
-        time *= 2;
+        time *= 4;
     }
 
     public void ResumeTime()
     {
-        time /= 2;
+        time /= 4;
     }
 }

@@ -7,6 +7,10 @@ public class NewGameController : MonoBehaviour
 {
     public GameObject player;
 
+    public GameObject ready;
+    public GameObject not;
+    public GameObject usin;
+
     float spawnX;
     float spawnY;
 
@@ -24,11 +28,14 @@ public class NewGameController : MonoBehaviour
     bool isEnemy;
 
     bool dev;
-    bool off;
 
     // Sets the amount of player lives
     void Start()
     {
+        not.SetActive(false);
+        ready.SetActive(false);
+        usin.SetActive(false);
+
         end = false;
         win = false;
 
@@ -36,7 +43,6 @@ public class NewGameController : MonoBehaviour
         lose = false;
 
         isEnemy = false;
-        off = false;
     }
 
     // Ends the game when the player runs out of lives
@@ -73,38 +79,26 @@ public class NewGameController : MonoBehaviour
                 NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
                 tb.TimeSlow();
                 dev = false;
-                off = true;
+
+                usin.SetActive(true);
+                ready.SetActive(false);
 
                 StartCoroutine(RanOut());
-            }
-        }
-        else if(off)
-        {
-            if(Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                Debug.Log("Time resumed");
-                off = false;
-                StartCoroutine(Enable());
-
-                NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-                tb.TimeNormal();
             }
         }
     }
 
     IEnumerator RanOut()
     {
-        if (off)
-        {
             yield return new WaitForSeconds(10);
             Debug.Log("Device Off");
-            off = false;
+            not.SetActive(true);
+            usin.SetActive(false);
 
             StartCoroutine(Enable());
 
             NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
             tb.TimeNormal();
-        }
     }
 
     // Reenables the ability to slow time after 10 seconds
@@ -112,6 +106,8 @@ public class NewGameController : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         Debug.Log("Device On");
+        ready.SetActive(true);
+        not.SetActive(false);
         dev = true;
     }
 
@@ -178,6 +174,8 @@ public class NewGameController : MonoBehaviour
     public void DeviceOn()
     {
         Debug.Log("Device active");
+
+        ready.SetActive(true);
 
         dev = true;
     }

@@ -49,11 +49,8 @@ public class NewTimerBehaviour : MonoBehaviour
         time = n;
 
         start = true;
-        if (time != 999)
-        {
-            InvokeRepeating("Flash", 0, 1);
-            InvokeRepeating("Countdown", 0, 1);
-        }
+        InvokeRepeating("Flash", 0, 1);
+        InvokeRepeating("Countdown", 0, 1);
     }
 
     public void TimeSlow()
