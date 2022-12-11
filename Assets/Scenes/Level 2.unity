@@ -591,13 +591,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 70194541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4402a68a647e09344ad0c6015321c24c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ec6a4cc35bd8f64fa31c5f210479563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 282184003}
   tele: {fileID: 142728404}
   min: {fileID: 754018766}
   max: {fileID: 1693901397}
+  fifteen: 0
+  twenty: 0
+  twentyFive: 1
+  thirty: 0
+  fortyFive: 0
+  sixty: 0
+  seventyFive: 0
 --- !u!1 &71275610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,7 +3685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5279995907928781690, guid: 4f8bb61ad1aa0094180d37ecf37e14eb, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5279995907928781690, guid: 4f8bb61ad1aa0094180d37ecf37e14eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6239,6 +6246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer1: {fileID: 1995397140}
   timer2: {fileID: 671805755}
+  chaser: {fileID: 907357475896612089, guid: fe1e2a3a73dc79c469765fcf8d2406be, type: 3}
 --- !u!4 &1077372132
 Transform:
   m_ObjectHideFlags: 0
@@ -7167,7 +7175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1494110326
 MonoBehaviour:
@@ -7185,6 +7193,13 @@ MonoBehaviour:
   tele: {fileID: 1540841492}
   min: {fileID: 1771827558}
   max: {fileID: 277092205}
+  fifteen: 0
+  twenty: 0
+  twentyFive: 0
+  thirty: 0
+  fortyFive: 0
+  sixty: 0
+  seventyFive: 1
 --- !u!61 &1494110327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10328,7 +10343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5279995907928781690, guid: 4f8bb61ad1aa0094180d37ecf37e14eb, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5279995907928781690, guid: 4f8bb61ad1aa0094180d37ecf37e14eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11217,5 +11232,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

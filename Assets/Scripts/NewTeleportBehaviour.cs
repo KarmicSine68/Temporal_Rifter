@@ -10,6 +10,50 @@ public class NewTeleportBehaviour : MonoBehaviour
     public GameObject min;
     public GameObject max;
 
+    public bool fifteen;
+    public bool twenty;
+    public bool twentyFive;
+    public bool thirty;
+    public bool fortyFive;
+    public bool sixty;
+    public bool seventyFive;
+
+    int time;
+
+    bool enemy;
+
+    private void Start()
+    {
+        if(fifteen)
+        {
+            time = 15;
+        }
+        if(twenty)
+        {
+            time = 20;
+        }
+        if (twentyFive)
+        {
+            time = 25;
+        }
+        if (thirty)
+        {
+            time = 30;
+        }
+        if (fortyFive)
+        {
+            time = 45;
+        }
+        if (sixty)
+        {
+            time = 60;
+        }
+        if (seventyFive)
+        {
+            time = 75;
+        }
+    }
+
     //Moves the player and camera to the next room
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -23,14 +67,36 @@ public class NewTeleportBehaviour : MonoBehaviour
         tb.StopTimer();
         StartCoroutine("Delay");
 
+        tb.SetSpawn(tele.transform.position);
+
         NewGameController gc = FindObjectOfType<NewGameController>();
-        gc.StoreTime(75);
+        gc.StoreTime(time);
+
+        if (enemy)
+        {
+            Debug.Log("goodbye");
+            ChaserBehaviour cs = FindObjectOfType<ChaserBehaviour>();
+            cs.Escaped();
+            StartCoroutine(NoEnemy());
+        }
+    }
+
+    public void EnemySpawned()
+    {
+        Debug.Log("Hello");
+        enemy = true;
+    }
+
+    IEnumerator NoEnemy()
+    {
+        yield return new WaitForSeconds(1);
+        enemy = false;
     }
 
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1);
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
-        tb.TimeStart(75);
+        tb.TimeStart(time);
     }
 }

@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Door
   - Teleporters
-  - 
-  - 
+  - Enemy
+  - Chaser
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Door
     uniqueID: 1868145823
+    locked: 0
+  - name: Chaser
+    uniqueID: 1110431121
     locked: 0

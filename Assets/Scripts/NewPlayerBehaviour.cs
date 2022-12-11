@@ -10,12 +10,16 @@ public class NewPlayerBehaviour : MonoBehaviour
 
     public float speed = 25f;
 
+    bool facingRight;
+
     // Start is called before the first frame update
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
         rb2D.freezeRotation = true;
         boxCollider = GetComponent<BoxCollider2D>();
+
+        facingRight = true;
     }
 
     // Update is called once per frame
@@ -25,10 +29,26 @@ public class NewPlayerBehaviour : MonoBehaviour
 
         if (!gc.end)
         {
-            rb2D.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb2D.velocity.y);
+            float move = Input.GetAxis("Horizontal");
+            rb2D.velocity = new Vector2(move * speed, rb2D.velocity.y);
 
+            if(move < 0 && facingRight)
+            {
+                Flip();
+            }
+            else if(move > 0 && !facingRight)
+            {
+                Flip();
+            }
+            
             Jump();
         }
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 
     private void Jump()

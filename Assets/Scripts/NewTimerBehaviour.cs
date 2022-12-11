@@ -8,6 +8,9 @@ public class NewTimerBehaviour : MonoBehaviour
     public TMP_Text timer1;
     public TMP_Text timer2;
 
+    public GameObject chaser;
+    Vector2 chaserSpawn;
+
     int time;
     //float wait;
 
@@ -39,6 +42,11 @@ public class NewTimerBehaviour : MonoBehaviour
         }
         
         time -= 1;
+    }
+
+    public void SetSpawn(Vector2 cs)
+    {
+        chaserSpawn = cs;
     }
 
     // Starts the timer
@@ -130,7 +138,6 @@ public class NewTimerBehaviour : MonoBehaviour
         // stops the timer from counting down
         if(start == false)
         {
-            //time = 0;
             CancelInvoke();
             timer1.text = "";
             timer2.text = "";
@@ -186,8 +193,13 @@ public class NewTimerBehaviour : MonoBehaviour
         {
             CancelInvoke();
 
+            Instantiate(chaser, chaserSpawn, Quaternion.identity);
+
+            NewTeleportBehaviour tb = FindObjectOfType<NewTeleportBehaviour>();
+            tb.EnemySpawned();
+
             NewGameController gc = FindObjectOfType<NewGameController>();
-            gc.Respawn();
+            gc.EnemySpawned();
         }
 
         // Displays the time

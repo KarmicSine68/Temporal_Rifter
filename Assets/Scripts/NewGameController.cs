@@ -29,9 +29,13 @@ public class NewGameController : MonoBehaviour
 
     bool dev;
 
+    bool enemy;
+
     // Sets the amount of player lives
     void Start()
     {
+        enemy = false;
+        
         not.SetActive(false);
         ready.SetActive(false);
         usin.SetActive(false);
@@ -164,10 +168,29 @@ public class NewGameController : MonoBehaviour
             died = true;
 
             LeverBehaviour lb = FindObjectOfType<LeverBehaviour>();
-            lb.Original();
+            //lb.Original();
+
+            // Despawns the chaser if the player dies
+            if (enemy)
+            {
+                ChaserBehaviour cs = FindObjectOfType<ChaserBehaviour>();
+                cs.Escaped();
+                StartCoroutine(NoEnemy());
+            }
 
             StartCoroutine(Delay());
         }
+    }
+
+    public void EnemySpawned()
+    {
+        enemy = true;
+    }
+
+    IEnumerator NoEnemy()
+    {
+        yield return new WaitForSeconds(1);
+        enemy = false;
     }
 
     // Allows the time slow mechanic to be used
@@ -197,6 +220,8 @@ public class NewGameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         died = false;
+
+        Debug.Log("time resumed");
 
         NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
         tb.TimeStart(store);
