@@ -87,6 +87,11 @@ public class NewTeleportBehaviour : MonoBehaviour
         enemy = true;
     }
 
+    public void Caught()
+    {
+        enemy = false;
+    }
+
     IEnumerator NoEnemy()
     {
         yield return new WaitForSeconds(1);

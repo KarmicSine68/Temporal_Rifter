@@ -6,7 +6,7 @@ public class ChaserBehaviour : MonoBehaviour
 {
     private void Awake()
     {
-        InvokeRepeating("Chase", 0, 0.5f);
+        InvokeRepeating("Chase", 0, 0.1f);
     }
 
     // Update is called once per frame
@@ -28,6 +28,9 @@ public class ChaserBehaviour : MonoBehaviour
 
         NewGameController gc = FindObjectOfType<NewGameController>();
         gc.Respawn();
+
+        NewTeleportBehaviour tb = FindObjectOfType<NewTeleportBehaviour>();
+        tb.Caught();
     }
 
     public void Escaped()

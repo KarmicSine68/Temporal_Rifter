@@ -37,28 +37,32 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     // Moves the enemy
-    private void Update()
+    private void FixedUpdate()
     {
         if(transform.position.x <= waypoint1.transform.position.x)
         {
             if (!slow)
             {
                 move = 15;
+                //transform.Rotate(0f, 180f, 0f);
             }
             else
             {
                 move *= -1;
+                //transform.Rotate(0f, 180f, 0f);
             }
         }
-        if (transform.position.x >= waypoint2.transform.position.x)
+        else if (transform.position.x >= waypoint2.transform.position.x)
         {
             if (!slow)
             {
                 move = -15;
+                transform.Rotate(0f, 180f, 0f);
             }
             else
             {
                 move *= -1;
+                transform.Rotate(0f, 180f, 0f);
             }
         }
 

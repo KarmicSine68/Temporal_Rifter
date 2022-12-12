@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2859871631304849430}
   - component: {fileID: 2859871631304849431}
+  - component: {fileID: 2950942966651219623}
   - component: {fileID: 2859871631304849432}
   - component: {fileID: 5273290892522113843}
   m_Layer: 7
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2859871631304849433}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 77.85775, y: -18.439264, z: 13.410035}
-  m_LocalScale: {x: 1.8, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 615.57, y: 52.29, z: 0}
+  m_LocalScale: {x: 1.88, y: 0.54, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,19 +74,39 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1568879091
-  m_SortingLayer: 3
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: baea08412288a224bbf0c9b0ffab2577, type: 3}
-  m_Color: {r: 0.022214282, g: 0.9811321, b: 0.9453813, a: 1}
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: c790b6c75a9e58c4a9d87dd68fd763ff, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5, y: 2.5}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2950942966651219623
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859871631304849433}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ff827bf4d50090469fd24a5fc38826b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!60 &2859871631304849432
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -103,18 +124,70 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 2.5, y: 2.5}
+    oldSize: {x: 6, y: 6}
+    newSize: {x: 6, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.25, y: -0.39999998}
-      - {x: 1.25, y: -0.39999998}
-      - {x: 1.25, y: 0.47}
-      - {x: -1.25, y: 0.47}
+    - - {x: 2.8, y: 1.64}
+      - {x: 2.8799999, y: 1.77}
+      - {x: 2.81, y: 1.76}
+      - {x: 2.57, y: 1.77}
+      - {x: 2.3899999, y: 1.67}
+      - {x: 2.35, y: 1.5699999}
+      - {x: 2.08, y: 1.64}
+      - {x: 2.1, y: 1.78}
+      - {x: 2.11, y: 1.9699999}
+      - {x: 2.08, y: 1.9799999}
+      - {x: 2.01, y: 1.9799999}
+      - {x: 1.93, y: 1.93}
+      - {x: 1.73, y: 1.73}
+      - {x: 1.68, y: 1.66}
+      - {x: 1.4, y: 1.63}
+      - {x: 1.22, y: 1.73}
+      - {x: 1.4399999, y: 1.79}
+      - {x: 1.48, y: 1.88}
+      - {x: 1.09, y: 1.89}
+      - {x: 0.77, y: 1.8299999}
+      - {x: 0.68, y: 1.8}
+      - {x: 0.55, y: 1.76}
+      - {x: 0.35, y: 1.67}
+      - {x: -0.01, y: 1.5999999}
+      - {x: -0.17, y: 1.64}
+      - {x: -0.17, y: 1.73}
+      - {x: -0.06, y: 1.8499999}
+      - {x: -0.06, y: 1.9}
+      - {x: -0.08, y: 1.92}
+      - {x: -0.22999999, y: 1.92}
+      - {x: -0.39999998, y: 1.78}
+      - {x: -0.53, y: 1.64}
+      - {x: -0.71999997, y: 1.56}
+      - {x: -0.84999996, y: 1.55}
+      - {x: -1.0799999, y: 1.64}
+      - {x: -1.16, y: 1.7199999}
+      - {x: -1.12, y: 1.8299999}
+      - {x: -1.15, y: 1.8499999}
+      - {x: -1.3199999, y: 1.8399999}
+      - {x: -1.56, y: 1.81}
+      - {x: -1.66, y: 1.77}
+      - {x: -1.87, y: 1.74}
+      - {x: -1.73, y: 1.8}
+      - {x: -1.62, y: 1.8499999}
+      - {x: -1.62, y: 1.9}
+      - {x: -1.64, y: 1.92}
+      - {x: -1.88, y: 1.93}
+      - {x: -2.1499999, y: 1.88}
+      - {x: -2.54, y: 1.62}
+      - {x: -2.8, y: 1.64}
+      - {x: -2.97, y: 1.64}
+      - {x: -3, y: 1.63}
+      - {x: -3, y: -1.52}
+      - {x: 3, y: -1.52}
+      - {x: 3, y: 1.5799999}
+      - {x: 2.83, y: 1.5899999}
 --- !u!114 &5273290892522113843
 MonoBehaviour:
   m_ObjectHideFlags: 0

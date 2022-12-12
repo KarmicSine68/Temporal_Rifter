@@ -64,7 +64,7 @@ public class MovingPlatformBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy 2")
         {
             collision.transform.SetParent(this.transform);
         }

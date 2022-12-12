@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 3263889713
     locked: 0
+  - name: Foreground
+    uniqueID: 2897142423
+    locked: 0
   - name: Lever
     uniqueID: 404248371
     locked: 0

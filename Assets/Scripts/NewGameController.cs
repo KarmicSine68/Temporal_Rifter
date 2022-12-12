@@ -82,6 +82,7 @@ public class NewGameController : MonoBehaviour
                 Debug.Log("Time slowed");
                 NewTimerBehaviour tb = FindObjectOfType<NewTimerBehaviour>();
                 tb.TimeSlow();
+
                 dev = false;
 
                 usin.SetActive(true);
